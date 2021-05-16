@@ -1,0 +1,7 @@
+rootProject.name = "What's today"
+include ':app'
+include ':data'
+include ':base'
+include ':dashboard'
+include ':summary'
+include ':common'
