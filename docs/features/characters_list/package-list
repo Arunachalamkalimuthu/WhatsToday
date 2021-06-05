@@ -1,0 +1,12 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.whatstoday.dynamicfeatures.characterslist.ui.detail
+com.whatstoday.dynamicfeatures.characterslist.ui.detail.di
+com.whatstoday.dynamicfeatures.characterslist.ui.detail.model
+com.whatstoday.dynamicfeatures.characterslist.ui.list
+com.whatstoday.dynamicfeatures.characterslist.ui.list.adapter
+com.whatstoday.dynamicfeatures.characterslist.ui.list.adapter.holders
+com.whatstoday.dynamicfeatures.characterslist.ui.list.di
+com.whatstoday.dynamicfeatures.characterslist.ui.list.model
+com.whatstoday.dynamicfeatures.characterslist.ui.list.paging
