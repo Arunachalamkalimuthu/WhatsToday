@@ -1,0 +1,6 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.whatstoday.dynamicfeatures.home.ui
+com.whatstoday.dynamicfeatures.home.ui.di
+com.whatstoday.dynamicfeatures.home.ui.menu

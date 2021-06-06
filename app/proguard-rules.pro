@@ -5,6 +5,7 @@
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
+<<<<<<< HEAD
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
@@ -19,3 +20,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+=======
+-keep class **.DataBinderMapperImpl { *; }
+>>>>>>> 89aa45a21d7c1492a0c026d8bebec5e55a00b835

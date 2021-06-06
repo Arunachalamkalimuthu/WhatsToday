@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 <resources>
     <string name="app_name">What\'s today</string>
 </resources>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Application name-->
+    <string name="app_name">MarvelDEV</string>
+</resources>
+>>>>>>> 89aa45a21d7c1492a0c026d8bebec5e55a00b835

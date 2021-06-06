@@ -1,0 +1,18 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.whatstoday.core.extensions$toHex(kotlin.ByteArray)com.whatstoday.core.extensions/kotlin.-byte-array/to-hex.html
+$dokka.location:com.whatstoday.core.extensions$toMD5(kotlin.String)com.whatstoday.core.extensions/kotlin.-string/to-m-d5.html
+com.whatstoday.core.annotations
+com.whatstoday.core.database
+com.whatstoday.core.database.characterfavorite
+com.whatstoday.core.database.migrations
+com.whatstoday.core.di
+com.whatstoday.core.di.modules
+com.whatstoday.core.di.scopes
+com.whatstoday.core.extensions
+com.whatstoday.core.mapper
+com.whatstoday.core.network
+com.whatstoday.core.network.repositiories
+com.whatstoday.core.network.responses
+com.whatstoday.core.network.services
+com.whatstoday.core.utils

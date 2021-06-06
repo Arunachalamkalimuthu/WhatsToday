@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -8,3 +9,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
+=======
+    <!--Primary colors-->
+    <color name="primary">#ffffff</color>
+    <color name="primaryDark">#f3f3f3f3</color>
+    <color name="primaryLight">#ffffff</color>
+    <color name="accent">#111111</color>
+
+    <!--Text colors-->
+    <color name="textHeadline">#1f1f1f</color>
+    <color name="textBody">#4f4f4f</color>
+</resources>
+>>>>>>> 89aa45a21d7c1492a0c026d8bebec5e55a00b835
