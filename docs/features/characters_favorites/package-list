@@ -1,7 +1,0 @@
-$dokka.format:html
-$dokka.linkExtension:html
-
-com.whatstoday.dynamicfeatures.charactersfavorites.ui.favorite
-com.whatstoday.dynamicfeatures.charactersfavorites.ui.favorite.adapter
-com.whatstoday.dynamicfeatures.charactersfavorites.ui.favorite.adapter.holders
-com.whatstoday.dynamicfeatures.charactersfavorites.ui.favorite.di
