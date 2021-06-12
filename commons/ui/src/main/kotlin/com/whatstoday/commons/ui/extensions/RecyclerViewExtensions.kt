@@ -1,5 +1,3 @@
- 
-
 package com.whatstoday.commons.ui.extensions
 
 import android.widget.ListView
@@ -22,3 +20,6 @@ val RecyclerView.gridLayoutManager: GridLayoutManager?
  */
 val RecyclerView.linearLayoutManager: LinearLayoutManager?
     get() = layoutManager as? LinearLayoutManager
+
+val RecyclerView.horizontalLayoutManager: LinearLayoutManager?
+    get() = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)

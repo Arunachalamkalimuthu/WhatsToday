@@ -5,7 +5,7 @@ package com.whatstoday.core.database.charactersfavorite
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
-import com.whatstoday.core.database.MarvelDatabase
+import com.whatstoday.core.database.WhatsTodayDatabase
 import com.whatstoday.core.database.characterfavorite.CharacterFavorite
 import com.whatstoday.core.database.characterfavorite.CharacterFavoriteDao
 import com.whatstoday.libraries.testutils.livedata.getValue
@@ -27,7 +27,7 @@ class CharacterFavoriteDaoTest : TestRobolectric() {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var database: MarvelDatabase
+    private lateinit var database: WhatsTodayDatabase
     private lateinit var characterFavoriteDao: CharacterFavoriteDao
     private val fakeCharactersFavorite = listOf(
         CharacterFavorite(0, "3-D Man", "http://i.annihil.us/535fecbbb9784.jpg"),
@@ -39,7 +39,7 @@ class CharacterFavoriteDaoTest : TestRobolectric() {
     fun setUp() = runBlocking {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         database = Room
-            .inMemoryDatabaseBuilder(context, MarvelDatabase::class.java)
+            .inMemoryDatabaseBuilder(context, WhatsTodayDatabase::class.java)
             .allowMainThreadQueries()
             .build()
         characterFavoriteDao = database.characterFavoriteDao()

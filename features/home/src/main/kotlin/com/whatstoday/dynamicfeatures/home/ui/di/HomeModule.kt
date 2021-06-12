@@ -1,13 +1,13 @@
- 
-
 package com.whatstoday.dynamicfeatures.home.ui.di
 
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import com.whatstoday.commons.ui.extensions.viewModel
+import com.whatstoday.core.database.category.CategoryRespository
 import com.whatstoday.core.di.scopes.FeatureScope
 import com.whatstoday.dynamicfeatures.home.ui.HomeFragment
 import com.whatstoday.dynamicfeatures.home.ui.HomeViewModel
+import com.whatstoday.dynamicfeatures.home.ui.adapter.CateogoryListAdapter
 import dagger.Module
 import dagger.Provides
 
@@ -30,7 +30,16 @@ class HomeModule(
      */
     @Provides
     @FeatureScope
-    fun providesHomeViewModel() = fragment.viewModel {
-        HomeViewModel()
+    fun providesHomeViewModel(
+        categoryRespository: CategoryRespository
+    ) = fragment.viewModel {
+        HomeViewModel(categoryRespository)
     }
+
+
+    @FeatureScope
+    @Provides
+    fun providesHomeCategoryAdapter(
+        viewModel: HomeViewModel
+    ) = CateogoryListAdapter(viewModel)
 }

@@ -3,7 +3,7 @@
 package com.whatstoday.core.di
 
 import android.content.Context
-import com.whatstoday.core.database.MarvelDatabase
+import com.whatstoday.core.database.WhatsTodayDatabase
 import com.whatstoday.core.database.characterfavorite.CharacterFavoriteDao
 import com.whatstoday.core.di.modules.DatabaseModule
 import io.mockk.every
@@ -33,7 +33,7 @@ class DatabaseModuleTest {
 
     @Test
     fun verifyProvidedCharacterFavoriteDao() {
-        val marvelDatabase: MarvelDatabase = mockk()
+        val marvelDatabase: WhatsTodayDatabase = mockk()
         val characterFavoriteDao: CharacterFavoriteDao = mockk()
 
         every { marvelDatabase.characterFavoriteDao() } returns characterFavoriteDao

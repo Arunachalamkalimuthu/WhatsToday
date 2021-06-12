@@ -2,8 +2,14 @@ package com.whatstoday.core.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.whatstoday.core.database.category.Category
+import com.whatstoday.core.database.category.CategoryDao
 import com.whatstoday.core.database.characterfavorite.CharacterFavorite
 import com.whatstoday.core.database.characterfavorite.CharacterFavoriteDao
+import com.whatstoday.core.database.convertors.Converters
+import com.whatstoday.core.database.task.Task
+import com.whatstoday.core.database.task.TaskDao
 
 /**
  * Marvel room database storing the different requested information like: characters, comics, etc...
@@ -11,11 +17,14 @@ import com.whatstoday.core.database.characterfavorite.CharacterFavoriteDao
  * @see Database
  */
 @Database(
-    entities = [CharacterFavorite::class],
+    entities = [CharacterFavorite::class, Task::class, Category::class],
+
     exportSchema = false,
-    version = 1
+    version = 3
 )
-abstract class MarvelDatabase : RoomDatabase() {
+@TypeConverters(value = [Converters::class])
+
+abstract class WhatsTodayDatabase : RoomDatabase() {
 
     /**
      * Get character favorite data access object.
@@ -23,4 +32,9 @@ abstract class MarvelDatabase : RoomDatabase() {
      * @return Character favorite dao.
      */
     abstract fun characterFavoriteDao(): CharacterFavoriteDao
+
+
+    abstract fun taskDao(): TaskDao
+
+    abstract fun categoryDao(): CategoryDao
 }

@@ -5,4 +5,8 @@
 
     <!--Home toolbar items-->
     <string name="home_toolbar_theme">Toggle Theme</string>
+
+    <string name="navigation_drawer_open">Drawer Open</string>
+    <string name="navigation_drawer_close">Drawer Closed</string>
+
 </resources>

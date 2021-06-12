@@ -15,7 +15,7 @@ import org.junit.Test
 class MarvelDatabaseTest : TestRobolectric() {
 
     @MockK
-    lateinit var marvelDatabase: MarvelDatabase
+    lateinit var marvelDatabase: WhatsTodayDatabase
     @MockK
     lateinit var characterFavoriteDao: CharacterFavoriteDao
 
