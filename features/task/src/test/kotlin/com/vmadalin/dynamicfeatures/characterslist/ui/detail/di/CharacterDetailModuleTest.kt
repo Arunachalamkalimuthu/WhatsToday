@@ -5,10 +5,9 @@ package com.whatstoday.dynamicfeatures.task.ui.detail.di
 import androidx.lifecycle.ViewModel
 import com.whatstoday.commons.ui.extensions.viewModel
 import com.whatstoday.core.database.characterfavorite.CharacterFavoriteRepository
-import com.whatstoday.core.network.repositiories.MarvelRepository
 import com.whatstoday.dynamicfeatures.task.ui.detail.TaskDetailFragment
-import com.whatstoday.dynamicfeatures.task.ui.detail.CharacterDetailViewModel
-import com.whatstoday.dynamicfeatures.task.ui.detail.model.CharacterDetailMapper
+import com.whatstoday.dynamicfeatures.task.ui.detail.TaskDetailViewModel
+import com.whatstoday.dynamicfeatures.task.ui.detail.model.TaskDetailMapper
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -44,15 +43,15 @@ class CharacterDetailModuleTest {
 
         every {
             fragment.viewModel(any(), any<() -> ViewModel>())
-        } returns mockk<CharacterDetailViewModel>()
+        } returns mockk<TaskDetailViewModel>()
 
-        val factoryCaptor = slot<() -> CharacterDetailViewModel>()
-        val marvelRepository = mockk<MarvelRepository>(relaxed = true)
+        val factoryCaptor = slot<() -> TaskDetailViewModel>()
+        val TaskRepository = mockk<TaskRepository>(relaxed = true)
         val favoriteRepository = mockk<CharacterFavoriteRepository>(relaxed = true)
-        val mapper = mockk<CharacterDetailMapper>(relaxed = true)
+        val mapper = mockk<TaskDetailMapper>(relaxed = true)
         module = CharacterDetailModule(fragment)
         module.providesCharacterDetailViewModel(
-            marvelRepository = marvelRepository,
+            TaskRepository = TaskRepository,
             characterFavoriteRepository = favoriteRepository,
             characterDetailMapper = mapper
         )
@@ -62,7 +61,7 @@ class CharacterDetailModuleTest {
         }
 
         factoryCaptor.captured().run {
-            assertEquals(marvelRepository, this.marvelRepository)
+            assertEquals(TaskRepository, this.TaskRepository)
             assertEquals(favoriteRepository, this.characterFavoriteRepository)
             assertEquals(mapper, this.characterDetailMapper)
         }

@@ -4,11 +4,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
-import androidx.lifecycle.Observer
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import com.whatstoday.android.WhatsTodayApp
 import com.whatstoday.commons.ui.base.BaseFragment
-import com.whatstoday.commons.ui.extensions.setupWithNavController
 import com.whatstoday.core.utils.ThemeUtils
 import com.whatstoday.dynamicfeatures.home.R
 import com.whatstoday.dynamicfeatures.home.databinding.FragmentHomeBinding
@@ -32,8 +29,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     lateinit var themeUtils: ThemeUtils
 
     private val navGraphIds = listOf(
-        R.navigation.navigation_characters_list_graph,
-        R.navigation.navigation_characters_favorites_graph
+        R.navigation.navigation_task_list_graph
     )
 
     /**
@@ -47,9 +43,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
-        if (savedInstanceState == null) {
-            setupBottomNavigationBar()
-        }
+
     }
 
     /**
@@ -61,7 +55,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
      */
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        setupBottomNavigationBar()
+        
     }
 
     /**
@@ -120,20 +114,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     /**
      * Configure app bottom bar via navigation graph.
      */
-    private fun setupBottomNavigationBar() {
-        val navController = viewBinding.bottomNavigation.setupWithNavController(
-            navGraphIds = navGraphIds,
-            fragmentManager = childFragmentManager,
-            containerId = R.id.nav_host_container,
-            intent = requireActivity().intent
-        )
 
-        navController.observe(
-            viewLifecycleOwner,
-            Observer {
-                viewModel.navigationControllerChanged(it)
-                setupActionBarWithNavController(requireCompatActivity(), it)
-            }
-        )
-    }
 }

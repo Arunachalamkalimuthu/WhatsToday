@@ -4,8 +4,6 @@ package com.whatstoday.core.network.repositories
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.whatstoday.core.BuildConfig
-import com.whatstoday.core.network.repositiories.MarvelRepository
-import com.whatstoday.core.network.services.MarvelService
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
@@ -26,12 +24,12 @@ class MarvelRepositoryTest {
 
     @MockK(relaxed = true)
     lateinit var marvelService: MarvelService
-    private lateinit var marvelRepository: MarvelRepository
+    private lateinit var TaskRepository: TaskRepository
 
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        marvelRepository = MarvelRepository(marvelService)
+        TaskRepository = TaskRepository(marvelService)
     }
 
     @Test
@@ -44,7 +42,7 @@ class MarvelRepositoryTest {
         val offset = slot<Int>()
         val limit = slot<Int>()
 
-        marvelRepository.getCharacters(
+        TaskRepository.getCharacters(
             offset = charactersOffset,
             limit = charactersLimit
         )
@@ -74,7 +72,7 @@ class MarvelRepositoryTest {
         val hash = slot<String>()
         val timestamp = slot<String>()
 
-        marvelRepository.getCharacter(characterId)
+        TaskRepository.getCharacter(characterId)
 
         coVerify {
             marvelService.getCharacter(

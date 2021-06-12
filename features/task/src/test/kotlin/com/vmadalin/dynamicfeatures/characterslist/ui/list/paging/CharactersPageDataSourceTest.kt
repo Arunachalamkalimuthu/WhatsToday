@@ -9,7 +9,6 @@ import androidx.paging.PageKeyedDataSource.LoadInitialCallback
 import androidx.paging.PageKeyedDataSource.LoadInitialParams
 import androidx.paging.PageKeyedDataSource.LoadParams
 import com.whatstoday.core.network.NetworkState
-import com.whatstoday.core.network.repositiories.MarvelRepository
 import com.whatstoday.core.network.responses.BaseResponse
 import com.whatstoday.core.network.responses.CharacterResponse
 import com.whatstoday.dynamicfeatures.task.ui.list.model.CharacterItem
@@ -43,7 +42,7 @@ class CharactersPageDataSourceTest {
     interface Callback : () -> Unit
 
     @MockK(relaxed = true)
-    lateinit var repository: MarvelRepository
+    lateinit var repository: TaskRepository
     @MockK(relaxed = true)
     lateinit var mapper: CharacterItemMapper
     @MockK(relaxed = true)

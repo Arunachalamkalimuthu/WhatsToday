@@ -9,16 +9,16 @@ import dagger.Component
 
 /**
  * Class for which a fully-formed, dependency-injected implementation is to
- * be generated from [CharactersListModule].
+ * be generated from [TaskListModule].
  *
  * @see Component
  */
 @FeatureScope
 @Component(
-    modules = [CharactersListModule::class],
+    modules = [TaskListModule::class],
     dependencies = [CoreComponent::class]
 )
-interface CharactersListComponent {
+interface TaskListComponent {
 
     /**
      * Inject dependencies on component.

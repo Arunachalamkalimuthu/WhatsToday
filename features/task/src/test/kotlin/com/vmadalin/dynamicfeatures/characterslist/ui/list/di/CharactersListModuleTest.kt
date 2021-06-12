@@ -5,7 +5,6 @@ package com.whatstoday.dynamicfeatures.task.ui.list.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.whatstoday.commons.ui.extensions.viewModel
-import com.whatstoday.core.network.repositiories.MarvelRepository
 import com.whatstoday.dynamicfeatures.task.ui.list.TaskListFragment
 import com.whatstoday.dynamicfeatures.task.ui.list.TaskListViewModel
 import com.whatstoday.dynamicfeatures.task.ui.list.model.CharacterItemMapper
@@ -26,7 +25,7 @@ class CharactersListModuleTest {
 
     @MockK
     lateinit var fragment: TaskListFragment
-    lateinit var module: CharactersListModule
+    lateinit var module: TaskListModule
 
     @Before
     fun setUp() {
@@ -35,7 +34,7 @@ class CharactersListModuleTest {
 
     @Test
     fun initializeCharactersListModule_ShouldSetUpCorrectly() {
-        module = CharactersListModule(fragment)
+        module = TaskListModule(fragment)
 
         assertEquals(fragment, module.fragment)
     }
@@ -50,7 +49,7 @@ class CharactersListModuleTest {
 
         val factoryCaptor = slot<() -> TaskListViewModel>()
         val dataFactory = mockk<TaskListPageDataSourceFactory>(relaxed = true)
-        module = CharactersListModule(fragment)
+        module = TaskListModule(fragment)
         module.providesCharactersListViewModel(dataFactory)
 
         verify {
@@ -62,13 +61,13 @@ class CharactersListModuleTest {
 
     @Test
     fun verifyProvidedCharactersPageDataSource() {
-        val repository = mockk<MarvelRepository>(relaxed = true)
+        val repository = mockk<TaskRepository>(relaxed = true)
         val mapper = mockk<CharacterItemMapper>(relaxed = true)
         val viewModel = mockk<TaskListViewModel>(relaxed = true)
         val scope = mockk<CoroutineScope>()
         every { viewModel.viewModelScope } returns scope
 
-        module = CharactersListModule(fragment)
+        module = TaskListModule(fragment)
         val dataSource = module.providesCharactersPageDataSource(
             viewModel = viewModel,
             repository = repository,

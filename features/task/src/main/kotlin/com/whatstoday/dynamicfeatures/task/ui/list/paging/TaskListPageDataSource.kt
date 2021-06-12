@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.whatstoday.core.annotations.OpenForTesting
 import com.whatstoday.core.network.NetworkState
-import com.whatstoday.core.network.repositiories.MarvelRepository
+import com.whatstoday.core.network.repositiories.TaskRepository
 import com.whatstoday.dynamicfeatures.task.ui.list.model.CharacterItem
 import com.whatstoday.dynamicfeatures.task.ui.list.model.CharacterItemMapper
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -26,7 +26,7 @@ const val PAGE_MAX_ELEMENTS = 50
 @OpenForTesting
 class TaskListPageDataSource @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)
-    val repository: MarvelRepository,
+    val repository: TaskRepository,
     @VisibleForTesting(otherwise = PRIVATE)
     val scope: CoroutineScope,
     @VisibleForTesting(otherwise = PRIVATE)

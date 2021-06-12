@@ -4,7 +4,6 @@ package com.whatstoday.core.di
 
 import com.whatstoday.core.BuildConfig
 import com.whatstoday.core.di.modules.NetworkModule
-import com.whatstoday.core.network.services.MarvelService
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
@@ -63,8 +62,8 @@ class NetworkModuleTest {
     @Test
     fun verifyProvidedMarvelRepository() {
         val marvelService = mockk<MarvelService>()
-        val marvelRepository = networkModule.provideMarvelRepository(marvelService)
+        val TaskRepository = networkModule.provideMarvelRepository(marvelService)
 
-        assertEquals(marvelService, marvelRepository.service)
+        assertEquals(marvelService, TaskRepository.service)
     }
 }

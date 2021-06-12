@@ -9,9 +9,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.whatstoday.core.database.characterfavorite.CharacterFavoriteRepository
-import com.whatstoday.core.network.repositiories.MarvelRepository
+import com.whatstoday.core.network.repositiories.TaskRepository
 import com.whatstoday.dynamicfeatures.task.ui.detail.model.CharacterDetail
-import com.whatstoday.dynamicfeatures.task.ui.detail.model.CharacterDetailMapper
+import com.whatstoday.dynamicfeatures.task.ui.detail.model.TaskDetailMapper
 import javax.inject.Inject
 import kotlinx.coroutines.launch
 
@@ -20,13 +20,13 @@ import kotlinx.coroutines.launch
  *
  * @see ViewModel
  */
-class CharacterDetailViewModel @Inject constructor(
+class TaskDetailViewModel @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)
-    val marvelRepository: MarvelRepository,
+    val TaskRepository: TaskRepository,
     @VisibleForTesting(otherwise = PRIVATE)
     val characterFavoriteRepository: CharacterFavoriteRepository,
     @VisibleForTesting(otherwise = PRIVATE)
-    val characterDetailMapper: CharacterDetailMapper
+    val characterDetailMapper: TaskDetailMapper
 ) : ViewModel() {
 
     private val _data = MutableLiveData<CharacterDetail>()
@@ -50,7 +50,7 @@ class CharacterDetailViewModel @Inject constructor(
         _state.postValue(CharacterDetailViewState.Loading)
         viewModelScope.launch {
             try {
-                val result = marvelRepository.getCharacter(characterId)
+                val result = TaskRepository.getCharacter(characterId)
                 _data.postValue(characterDetailMapper.map(result))
 
                 characterFavoriteRepository.getCharacterFavorite(characterId)?.let {

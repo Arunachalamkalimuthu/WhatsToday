@@ -7,7 +7,7 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.viewModelScope
 import com.whatstoday.commons.ui.extensions.viewModel
 import com.whatstoday.core.di.scopes.FeatureScope
-import com.whatstoday.core.network.repositiories.MarvelRepository
+import com.whatstoday.core.network.repositiories.TaskRepository
 import com.whatstoday.dynamicfeatures.task.ui.list.TaskListFragment
 import com.whatstoday.dynamicfeatures.task.ui.list.TaskListViewModel
 import com.whatstoday.dynamicfeatures.task.ui.list.adapter.TaskListAdapter
@@ -18,12 +18,12 @@ import dagger.Module
 import dagger.Provides
 
 /**
- * Class that contributes to the object graph [CharactersListComponent].
+ * Class that contributes to the object graph [TaskListComponent].
  *
  * @see Module
  */
 @Module
-class CharactersListModule(
+class TaskListModule(
     @VisibleForTesting(otherwise = PRIVATE)
     val fragment: TaskListFragment
 ) {
@@ -52,7 +52,7 @@ class CharactersListModule(
     @Provides
     fun providesCharactersPageDataSource(
         viewModel: TaskListViewModel,
-        repository: MarvelRepository,
+        repository: TaskRepository,
         mapper: CharacterItemMapper
     ) = TaskListPageDataSource(
         repository = repository,

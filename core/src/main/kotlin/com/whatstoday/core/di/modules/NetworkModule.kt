@@ -1,18 +1,16 @@
- 
-
 package com.whatstoday.core.di.modules
 
 import com.whatstoday.core.BuildConfig
 import com.whatstoday.core.di.CoreComponent
-import com.whatstoday.core.network.repositiories.MarvelRepository
-import com.whatstoday.core.network.services.MarvelService
+import com.whatstoday.core.network.repositiories.TaskRepository
+import com.whatstoday.core.network.services.TaskService
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 /**
  * Class that contributes to the object graph [CoreComponent].
@@ -74,15 +72,15 @@ class NetworkModule {
      */
     @Singleton
     @Provides
-    fun provideMarvelService(retrofit: Retrofit) = retrofit.create(MarvelService::class.java)
+    fun provideMarvelService(retrofit: Retrofit) = retrofit.create(TaskService::class.java)
 
     /**
-     * Create a provider method binding for [MarvelRepository].
+     * Create a provider method binding for [TaskRepository].
      *
      * @return Instance of marvel repository.
      * @see Provides
      */
     @Singleton
     @Provides
-    fun provideMarvelRepository(service: MarvelService) = MarvelRepository(service)
+    fun provideMarvelRepository(service: TaskService) = TaskRepository(service)
 }

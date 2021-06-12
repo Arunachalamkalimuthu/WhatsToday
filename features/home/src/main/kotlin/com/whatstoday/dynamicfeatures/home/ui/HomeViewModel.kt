@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.whatstoday.dynamicfeatures.home.R
 
-val NAV_FRAGMENTS_ID = setOf(R.id.characters_list_fragment, R.id.characters_favorites_fragment)
+val NAV_FRAGMENTS_ID = setOf(R.id.characters_list_fragment)
 
 /**
  * View model responsible for preparing and managing the data for [HomeFragment].

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.whatstoday.dynamicfeatures.task.ui.detail.CharacterDetailViewModel" />
+            type="com.whatstoday.dynamicfeatures.task.ui.detail.TaskDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

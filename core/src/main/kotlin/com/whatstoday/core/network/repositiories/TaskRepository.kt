@@ -1,26 +1,30 @@
-
-
 package com.whatstoday.core.network.repositiories
 
+import android.os.Handler
+import android.os.Looper
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
-import com.whatstoday.core.BuildConfig
 import com.whatstoday.core.extensions.toMD5
 import com.whatstoday.core.network.responses.BaseResponse
 import com.whatstoday.core.network.responses.CharacterResponse
-import com.whatstoday.core.network.services.MarvelService
+import com.whatstoday.core.network.services.TaskService
 
-private const val API_PUBLIC_KEY = " "
-private const val API_PRIVATE_KEY = " "
-private const val HASH_FORMAT = "%s%s%s"
 
 /**
  * Repository module for handling marvel API network operations [MarvelService].
  */
-class MarvelRepository(
+
+
+class TaskRepository(
     @VisibleForTesting(otherwise = PRIVATE)
-    internal val service: MarvelService
+    internal val service: TaskService
 ) {
+    companion object {
+        const val API_PUBLIC_KEY = " "
+        const val API_PRIVATE_KEY = " "
+        const val HASH_FORMAT = "%s%s%s"
+
+    }
 
     /**
      * Get all info of Marvel character.

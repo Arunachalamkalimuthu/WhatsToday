@@ -12,6 +12,7 @@ import com.whatstoday.commons.views.ProgressBarDialog
 import com.whatstoday.dynamicfeatures.characterslist.R
 import com.whatstoday.dynamicfeatures.characterslist.databinding.FragmentTaskDetailBinding
 import com.whatstoday.dynamicfeatures.task.ui.detail.di.CharacterDetailModule
+import com.whatstoday.dynamicfeatures.task.ui.detail.di.DaggerCharacterDetailComponent
 import javax.inject.Inject
 
 /**
@@ -20,14 +21,14 @@ import javax.inject.Inject
  * @see BaseFragment
  */
 class TaskDetailFragment :
-    BaseFragment<FragmentTaskDetailBinding, CharacterDetailViewModel>(
+    BaseFragment<FragmentTaskDetailBinding, TaskDetailViewModel>(
         layoutId = R.layout.fragment_task_detail
     ) {
 
     @Inject
     lateinit var progressDialog: ProgressBarDialog
 
-    private val args: CharacterDetailFragmentArgs by navArgs()
+    private val args: TaskDetailFragmentArgs by navArgs()
 
     /**
      * Called to have the fragment instantiate its user interface view.

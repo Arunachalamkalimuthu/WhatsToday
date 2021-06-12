@@ -7,7 +7,7 @@
     tools:ignore="UnusedNavigation,UnusedIds">
     <fragment
         android:id="@+id/characters_list_fragment"
-        android:name="com.whatstoday.dynamicfeatures.task.ui.list.CharactersListFragment"
+        android:name="com.whatstoday.dynamicfeatures.task.ui.list.TaskListFragment"
         android:label="Characters">
         <action
             android:id="@+id/action_charactersListFragment_to_character_detail_fragment"
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/character_detail_fragment"
-        android:name="com.whatstoday.dynamicfeatures.task.ui.detail.CharacterDetailFragment">
+        android:name="com.whatstoday.dynamicfeatures.task.ui.detail.TaskDetailFragment">
         <argument
             android:name="character_id"
             app:argType="long" />

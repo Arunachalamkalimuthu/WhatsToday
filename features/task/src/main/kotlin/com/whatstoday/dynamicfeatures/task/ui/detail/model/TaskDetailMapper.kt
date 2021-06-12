@@ -1,5 +1,3 @@
-
-
 package com.whatstoday.dynamicfeatures.task.ui.detail.model
 
 import com.whatstoday.core.mapper.Mapper
@@ -13,7 +11,7 @@ private const val IMAGE_URL_FORMAT = "%s.%s"
  *
  * @see Mapper
  */
-class CharacterDetailMapper : Mapper<BaseResponse<CharacterResponse>, CharacterDetail> {
+class TaskDetailMapper : Mapper<BaseResponse<CharacterResponse>, CharacterDetail> {
 
     /**
      * Transform network response to [CharacterDetail].

@@ -1,5 +1,3 @@
-
-
 package com.whatstoday.core.di
 
 import android.content.Context
@@ -8,8 +6,8 @@ import com.whatstoday.core.di.modules.ContextModule
 import com.whatstoday.core.di.modules.DatabaseModule
 import com.whatstoday.core.di.modules.NetworkModule
 import com.whatstoday.core.di.modules.UtilsModule
-import com.whatstoday.core.network.repositiories.MarvelRepository
-import com.whatstoday.core.network.services.MarvelService
+import com.whatstoday.core.network.repositiories.TaskRepository
+import com.whatstoday.core.network.services.TaskService
 import com.whatstoday.core.utils.ThemeUtils
 import dagger.Component
 import javax.inject.Singleton
@@ -42,14 +40,14 @@ interface CoreComponent {
      *
      * @return MarvelService
      */
-    fun marvelService(): MarvelService
+    fun marvelService(): TaskService
 
     /**
-     * Provide dependency graph MarvelRepository
+     * Provide dependency graph TaskRepository
      *
-     * @return MarvelRepository
+     * @return TaskRepository
      */
-    fun marvelRepository(): MarvelRepository
+    fun TaskRepository(): TaskRepository
 
     /**
      * Provide dependency graph CharacterFavoriteDao

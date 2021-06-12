@@ -33,7 +33,7 @@ object PluginsVersions {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:${PluginsVersions.GRADLE_ANDROID}")
+    implementation("com.android.tools.build:gradle:4.2.1")
     implementation("com.github.ben-manes:gradle-versions-plugin:${PluginsVersions.GRADLE_VERSIONS}")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${PluginsVersions.KOTLIN}")
     implementation("org.jetbrains.kotlin:kotlin-allopen:${PluginsVersions.KOTLIN}")

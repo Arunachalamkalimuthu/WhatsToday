@@ -5,11 +5,10 @@ package com.whatstoday.dynamicfeatures.task.ui.detail
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.whatstoday.core.database.characterfavorite.CharacterFavoriteRepository
-import com.whatstoday.core.network.repositiories.MarvelRepository
 import com.whatstoday.core.network.responses.BaseResponse
 import com.whatstoday.core.network.responses.CharacterResponse
 import com.whatstoday.dynamicfeatures.task.ui.detail.model.CharacterDetail
-import com.whatstoday.dynamicfeatures.task.ui.detail.model.CharacterDetailMapper
+import com.whatstoday.dynamicfeatures.task.ui.detail.model.TaskDetailMapper
 import com.whatstoday.libraries.testutils.rules.CoroutineRule
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -33,22 +32,22 @@ class CharacterDetailViewModelTest {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @MockK(relaxed = true)
-    lateinit var marvelRepository: MarvelRepository
+    lateinit var TaskRepository: TaskRepository
     @MockK(relaxed = true)
     lateinit var characterFavoriteRepository: CharacterFavoriteRepository
     @MockK
-    lateinit var characterDetailMapper: CharacterDetailMapper
+    lateinit var characterDetailMapper: TaskDetailMapper
     @MockK(relaxed = true)
     lateinit var stateObserver: Observer<CharacterDetailViewState>
     @MockK(relaxed = true)
     lateinit var dataObserver: Observer<CharacterDetail>
-    lateinit var viewModel: CharacterDetailViewModel
+    lateinit var viewModel: TaskDetailViewModel
 
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        viewModel = CharacterDetailViewModel(
-            marvelRepository = marvelRepository,
+        viewModel = TaskDetailViewModel(
+            TaskRepository = TaskRepository,
             characterFavoriteRepository = characterFavoriteRepository,
             characterDetailMapper = characterDetailMapper
         )
@@ -76,14 +75,14 @@ class CharacterDetailViewModelTest {
     fun loadCharacterDetail_WhenSuccess_ShouldPostDataResult() {
         val characterDetail = mockk<CharacterDetail>()
         val characterResponse = mockk<BaseResponse<CharacterResponse>>()
-        coEvery { marvelRepository.getCharacter(any()) } returns characterResponse
+        coEvery { TaskRepository.getCharacter(any()) } returns characterResponse
         coEvery { characterDetailMapper.map(any()) } returns characterDetail
 
         val characterId = 1L
         viewModel.loadCharacterDetail(characterId)
 
         verify { dataObserver.onChanged(characterDetail) }
-        coVerify { marvelRepository.getCharacter(characterId) }
+        coVerify { TaskRepository.getCharacter(characterId) }
         coVerify { characterDetailMapper.map(characterResponse) }
     }
 
@@ -91,7 +90,7 @@ class CharacterDetailViewModelTest {
     fun loadCharacterDetail_NonFavourite_WhenSuccess_ShouldBeAddToFavoriteState() {
         val characterDetail = mockk<CharacterDetail>()
         coEvery { characterFavoriteRepository.getCharacterFavorite(any()) } returns null
-        coEvery { marvelRepository.getCharacter(any()) } returns mockk()
+        coEvery { TaskRepository.getCharacter(any()) } returns mockk()
         coEvery { characterDetailMapper.map(any()) } returns characterDetail
 
         viewModel.loadCharacterDetail(1L)
@@ -105,7 +104,7 @@ class CharacterDetailViewModelTest {
     fun loadCharacterDetail_Favourite_WhenSuccess_ShouldBeAlreadyAddedToFavoriteState() {
         val characterDetail = mockk<CharacterDetail>()
         coEvery { characterFavoriteRepository.getCharacterFavorite(any()) } returns mockk()
-        coEvery { marvelRepository.getCharacter(any()) } returns mockk()
+        coEvery { TaskRepository.getCharacter(any()) } returns mockk()
         coEvery { characterDetailMapper.map(any()) } returns characterDetail
 
         viewModel.loadCharacterDetail(1L)
@@ -133,7 +132,7 @@ class CharacterDetailViewModelTest {
             description = "",
             imageUrl = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
         )
-        coEvery { marvelRepository.getCharacter(any()) } returns mockk()
+        coEvery { TaskRepository.getCharacter(any()) } returns mockk()
         coEvery { characterDetailMapper.map(any()) } returns characterDetail
 
         viewModel.loadCharacterDetail(1L)

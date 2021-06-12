@@ -11,7 +11,7 @@ import retrofit2.http.Query
 /**
  * Representation interface of the Marvel API endpoints.
  */
-interface MarvelService {
+interface TaskService {
 
     /**
      * Fetches a single character resource. It is the canonical URI for any character resource

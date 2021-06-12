@@ -6,13 +6,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.PagedList
 import com.whatstoday.android.WhatsTodayApp.Companion.coreComponent
 import com.whatstoday.commons.ui.base.BaseFragment
+import com.whatstoday.commons.ui.extensions.gridLayoutManager
 import com.whatstoday.commons.ui.extensions.observe
 import com.whatstoday.dynamicfeatures.characterslist.R
 import com.whatstoday.dynamicfeatures.characterslist.databinding.FragmentTaskListBinding
 import com.whatstoday.dynamicfeatures.task.ui.list.adapter.TaskListAdapter
 import com.whatstoday.dynamicfeatures.task.ui.list.adapter.TaskListAdapterState
-import com.whatstoday.dynamicfeatures.task.ui.list.di.CharactersListModule
-import com.whatstoday.dynamicfeatures.task.ui.list.di.DaggerCharactersListComponent
+import com.whatstoday.dynamicfeatures.task.ui.list.di.DaggerTaskListComponent
+import com.whatstoday.dynamicfeatures.task.ui.list.di.TaskListModule
+
 import com.whatstoday.dynamicfeatures.task.ui.list.model.CharacterItem
 import javax.inject.Inject
 
@@ -48,10 +50,10 @@ class TaskListFragment :
      * Initialize dagger injection dependency graph.
      */
     override fun onInitDependencyInjection() {
-        DaggerCharactersListComponent
+        DaggerTaskListComponent
             .builder()
             .coreComponent(coreComponent(requireContext()))
-            .charactersListModule(CharactersListModule(this))
+            .taskListModule(TaskListModule(this))
             .build()
             .inject(this)
     }
@@ -107,7 +109,7 @@ class TaskListFragment :
         when (viewEvent) {
             is TaskListViewEvent.OpenCharacterDetail ->
                 findNavController().navigate(
-                    CharactersListFragmentDirections
+                    TaskListFragmentDirections
                         .actionCharactersListFragmentToCharacterDetailFragment(viewEvent.id)
                 )
         }

@@ -8,10 +8,10 @@ import com.whatstoday.commons.ui.extensions.viewModel
 import com.whatstoday.commons.views.ProgressBarDialog
 import com.whatstoday.core.database.characterfavorite.CharacterFavoriteRepository
 import com.whatstoday.core.di.scopes.FeatureScope
-import com.whatstoday.core.network.repositiories.MarvelRepository
+import com.whatstoday.core.network.repositiories.TaskRepository
 import com.whatstoday.dynamicfeatures.task.ui.detail.TaskDetailFragment
-import com.whatstoday.dynamicfeatures.task.ui.detail.CharacterDetailViewModel
-import com.whatstoday.dynamicfeatures.task.ui.detail.model.CharacterDetailMapper
+import com.whatstoday.dynamicfeatures.task.ui.detail.TaskDetailViewModel
+import com.whatstoday.dynamicfeatures.task.ui.detail.model.TaskDetailMapper
 import dagger.Module
 import dagger.Provides
 
@@ -27,9 +27,9 @@ class CharacterDetailModule(
 ) {
 
     /**
-     * Create a provider method binding for [CharacterDetailViewModel].
+     * Create a provider method binding for [TaskDetailViewModel].
      *
-     * @param marvelRepository
+     * @param TaskRepository
      * @param characterFavoriteRepository handler character favorite repository
      * @param characterDetailMapper mapper to parse view model
      *
@@ -38,26 +38,26 @@ class CharacterDetailModule(
     @FeatureScope
     @Provides
     fun providesCharacterDetailViewModel(
-        marvelRepository: MarvelRepository,
+        TaskRepository: TaskRepository,
         characterFavoriteRepository: CharacterFavoriteRepository,
-        characterDetailMapper: CharacterDetailMapper
+        characterDetailMapper: TaskDetailMapper
     ) = fragment.viewModel {
-        CharacterDetailViewModel(
-            marvelRepository = marvelRepository,
+        TaskDetailViewModel(
+            TaskRepository = TaskRepository,
             characterFavoriteRepository = characterFavoriteRepository,
             characterDetailMapper = characterDetailMapper
         )
     }
 
     /**
-     * Create a provider method binding for [CharacterDetailMapper].
+     * Create a provider method binding for [TaskDetailMapper].
      *
      * @return instance of mapper.
      * @see Provides
      */
     @FeatureScope
     @Provides
-    fun providesCharacterDetailMapper() = CharacterDetailMapper()
+    fun providesCharacterDetailMapper() = TaskDetailMapper()
 
     /**
      * Create a provider method binding for [ProgressBarDialog].

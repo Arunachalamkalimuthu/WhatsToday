@@ -5,7 +5,7 @@ package com.whatstoday.dynamicfeatures.task.ui.list.adapter.holders
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import com.whatstoday.commons.ui.base.BaseViewHolder
-import com.whatstoday.dynamicfeatures.task.databinding.ListItemErrorBinding
+import com.whatstoday.dynamicfeatures.characterslist.databinding.ListItemErrorBinding
 import com.whatstoday.dynamicfeatures.task.ui.list.TaskListViewModel
 
 /**

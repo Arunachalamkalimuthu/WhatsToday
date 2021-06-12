@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/dash_nav_explore_pet"
+            android:icon="@drawable/ic_favorites"
+            android:title="Browse pet"
+            app:showAsAction="ifRoom" />
+
+
+        <item
+            android:id="@+id/dash_nav_donation"
+            android:icon="@drawable/ic_favorites"
+            android:title="Donation"
+            app:showAsAction="ifRoom" />
+
+
+        <item
+            android:id="@+id/dash_nav_add_pet"
+            android:icon="@drawable/ic_favorites"
+            android:title="Add a pet"
+            app:showAsAction="ifRoom" />
+
+
+        <item
+            android:id="@+id/dash_nav_appointment"
+            android:icon="@drawable/ic_favorites"
+            android:title="All Appointments"
+            app:showAsAction="ifRoom" />
+
+        <item
+            android:id="@+id/dash_nav_favourites"
+            android:icon="@drawable/ic_favorites"
+            android:title="Favorites"
+            app:showAsAction="ifRoom" />
+    </group>
+
+</menu>

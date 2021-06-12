@@ -12,7 +12,7 @@ import org.junit.Test
 
 class CharacterDetailMapperTest {
 
-    private val mapper = CharacterDetailMapper()
+    private val mapper = TaskDetailMapper()
 
     @Test(expected = NoSuchElementException::class)
     fun characterMapper_WithEmptyResults_ShouldThrowException() {
